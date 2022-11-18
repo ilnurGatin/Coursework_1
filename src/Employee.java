@@ -1,4 +1,6 @@
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
 
 public class Employee {
     private final int id;
@@ -9,12 +11,20 @@ public class Employee {
 
     public Employee(String fullName, int departmentId, int salary) {
         this.id = count++;
-        if (StringUtils.isBlank(fullName) || !StringUtils.isAlpha(fullName.replace(" ", ""))) {
+        if (StringUtils.isBlank(fullName) || !StringUtils.isAlpha(fullName.replace(" ", "")) || !isFullNameCapitalised(fullName)) {
             throw new IllegalArgumentException("400 Bad Request");
         }
         this.fullName = fullName;
         this.departmentId = departmentId;
         this.salary = salary;
+    }
+
+    private boolean isFullNameCapitalised(String fullName) {
+        if (fullName.equals(WordUtils.capitalizeFully(fullName))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getId() {
@@ -50,4 +60,5 @@ public class Employee {
                 ", salary=" + salary +
                 '}';
     }
+
 }

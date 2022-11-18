@@ -10,7 +10,7 @@ public class Main {
         addEmployee(employees, new Employee("Sidorov Ivan Ivanovich", 5, 75_000));
 
         // Invalid fullName test
-        //addEmployee(employees, new Employee("Sidorov2 Ivan Ivanovich", 5, 75_000));
+        addEmployee(employees, new Employee("sSidorov Ivan Ivanovich", 5, 75_000));
 
         employeesInfo(employees);
 
