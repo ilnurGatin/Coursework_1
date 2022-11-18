@@ -9,6 +9,9 @@ public class Main {
         addEmployee(employees, new Employee("Ivanov Petor Ivanovich", 3, 49_000));
         addEmployee(employees, new Employee("Sidorov Ivan Ivanovich", 5, 75_000));
 
+        // Invalid fullName test
+        //addEmployee(employees, new Employee("Sidorov2 Ivan Ivanovich", 5, 75_000));
+
         employeesInfo(employees);
 
         System.out.println("Общие затраты на зарплату составляют " + sumSalary(employees) + " рублей");

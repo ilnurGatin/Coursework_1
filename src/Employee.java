@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.StringUtils;
+
 public class Employee {
     private final int id;
     private final String fullName;
@@ -7,6 +9,9 @@ public class Employee {
 
     public Employee(String fullName, int departmentId, int salary) {
         this.id = count++;
+        if (StringUtils.isBlank(fullName) || !StringUtils.isAlpha(fullName.replace(" ", ""))) {
+            throw new IllegalArgumentException("400 Bad Request");
+        }
         this.fullName = fullName;
         this.departmentId = departmentId;
         this.salary = salary;
